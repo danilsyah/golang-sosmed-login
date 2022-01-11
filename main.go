@@ -46,6 +46,7 @@ func home(res http.ResponseWriter, req *http.Request) {
 	t.Execute(res, nil)
 }
 
+// proses authentikasi ke sosmed
 func beginauth(res http.ResponseWriter, req *http.Request) {
 	gothic.BeginAuthHandler(res, req) // authentication dengan provider
 }
