@@ -20,12 +20,7 @@ import (
 	"github.com/markbates/goth/providers/google"
 )
 
-type customer struct {
-	FirstName, LastName string
-	Email, Password     string
-	Mobile              int
-}
-
+// membuat koneksi ke database mysql yang mengarah ke file .env
 func dbConns() (db *sql.DB) {
 	er := godotenv.Load(".env")
 
@@ -45,8 +40,9 @@ func dbConns() (db *sql.DB) {
 	return db
 }
 
+// halaman login yang pertama kali di tampilkan ketika memanggil url server
 func home(res http.ResponseWriter, req *http.Request) {
-	t, _ := template.ParseFiles("templates/social.html")
+	t, _ := template.ParseFiles("templates/login.html")
 	t.Execute(res, nil)
 }
 
